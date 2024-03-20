@@ -1,0 +1,16 @@
+no;Source;Target;Weight
+1;basicAuthToken.decodeKeySet;CryptoJS.AES.decrypt;2
+2;basicAuthToken.decodeKeySet;JSON.parse;2
+3;basicAuthToken.createSignatureKey;CryptoJS.SHA256;2
+4;basicAuthToken.createSignatureKey;CryptoJS.AES.encrypt;3
+5;basicAuthToken.fetchKeySet;basicAuthToken.decodeKeySet;3
+6;basicAuthToken.fetchKeySet;basicAuthToken.createSignatureKey;3
+7;basicAuthToken.fetchBasicToken;-;5
+8;basicAuthToken.verifyBasicAuthToken;basicAuthToken.fetchKeySet;4
+9;basicAuthToken.verifyBasicAuthToken;jwktopem;5
+10;basicAuthToken.verifyBasicAuthToken;jwt.verify;4
+11;basicAuthToken.generateBasicAuthToken;basicAuthToken.fetchKeySet;6
+12;basicAuthToken.generateBasicAuthToken;basicAuthToken.fetchBasicToken;7
+13;basicAuthToken.generatePKCE;randomAplhaNumeric;4
+14;basicAuthToken.generatePKCE;CryptoJS.SHA256;3
+15;basicAuthToken.generatePKCE;base64url.fromBase64;5
